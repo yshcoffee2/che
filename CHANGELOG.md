@@ -1,5 +1,54 @@
 # Change Log
 
+## [7.5.0](https://github.com/eclipse/che/tree/7.5.0) (2019-11-28)
+[Full Changelog](https://github.com/eclipse/che/compare/7.3.2...7.5.0)
+
+**Merged pull requests:**
+
+- Various improvements of Jenkins pipeline to run Che E2E Happy path tests on PR check  [\#15064](https://github.com/eclipse/che/pull/15064) ([dmytro-ndp](https://github.com/dmytro-ndp))
+- User selection of the workspace namespace/project [\#15040](https://github.com/eclipse/che/pull/15040) ([metlos](https://github.com/metlos))
+- RELEASE: Set next development version [\#15360](https://github.com/eclipse/che/pull/15360) ([vparfonov](https://github.com/vparfonov))
+- Fix checking New Worspace page in Vert.x E2E test [\#15359](https://github.com/eclipse/che/pull/15359) ([dmytro-ndp](https://github.com/dmytro-ndp))
+- Fix possible NPE when no URL parameter specified for factory [\#15344](https://github.com/eclipse/che/pull/15344) ([mshaposhnik](https://github.com/mshaposhnik))
+- Turn off the tests which check refresh [\#15335](https://github.com/eclipse/che/pull/15335) ([dmytro-ndp](https://github.com/dmytro-ndp))
+- Fix test workspace devfile address for PR based on fork [\#15311](https://github.com/eclipse/che/pull/15311) ([dmytro-ndp](https://github.com/dmytro-ndp))
+- Fixed path to default trust store of OpenJDK [\#15296](https://github.com/eclipse/che/pull/15296) ([sleshchenko](https://github.com/sleshchenko))
+- Set basic access authentication for registries requests [\#15292](https://github.com/eclipse/che/pull/15292) ([olexii4](https://github.com/olexii4))
+- Align JGroups labels property name and add one preventing to connect to unready pods [\#15282](https://github.com/eclipse/che/pull/15282) ([mshaposhnik](https://github.com/mshaposhnik))
+- \[Selenium\] Stabilize workspace creation verification [\#15274](https://github.com/eclipse/che/pull/15274) ([SkorikSergey](https://github.com/SkorikSergey))
+- README: update more links to documentation [\#15255](https://github.com/eclipse/che/pull/15255) ([sunix](https://github.com/sunix))
+- Listen changing workspace status [\#15254](https://github.com/eclipse/che/pull/15254) ([vitaliy-guliy](https://github.com/vitaliy-guliy))
+- Added support of env for k8s/os component [\#15252](https://github.com/eclipse/che/pull/15252) ([sleshchenko](https://github.com/sleshchenko))
+- \[UD\] Fixed ability to start a workspace after changing its name. [\#15251](https://github.com/eclipse/che/pull/15251) ([akurinnoy](https://github.com/akurinnoy))
+- Improved handling of exceptions in workspace activities related operations [\#15247](https://github.com/eclipse/che/pull/15247) ([sleshchenko](https://github.com/sleshchenko))
+- README: update links to documentation [\#15245](https://github.com/eclipse/che/pull/15245) ([sunix](https://github.com/sunix))
+- Update a few links in order to point to che-7 docs [\#15236](https://github.com/eclipse/che/pull/15236) ([akurinnoy](https://github.com/akurinnoy))
+- Support git operation for repos with self-signed SSL certs [\#15218](https://github.com/eclipse/che/pull/15218) ([vparfonov](https://github.com/vparfonov))
+- Provide metrics of k8s API execution [\#15207](https://github.com/eclipse/che/pull/15207) ([skabashnyuk](https://github.com/skabashnyuk))
+- Add whitespace to README.md [\#15205](https://github.com/eclipse/che/pull/15205) ([monaka](https://github.com/monaka))
+- Used latest official jre8-slim image for che master [\#15203](https://github.com/eclipse/che/pull/15203) ([skabashnyuk](https://github.com/skabashnyuk))
+- JvmService. Service that allows getting jvm heap and thread dump [\#15201](https://github.com/eclipse/che/pull/15201) ([skabashnyuk](https://github.com/skabashnyuk))
+- Publish PluginBroker pod events as runtime log [\#15198](https://github.com/eclipse/che/pull/15198) ([sleshchenko](https://github.com/sleshchenko))
+- Use dashboard to restart the workspace [\#15180](https://github.com/eclipse/che/pull/15180) ([vitaliy-guliy](https://github.com/vitaliy-guliy))
+- RELEASE: Update CHANGELOG [\#15158](https://github.com/eclipse/che/pull/15158) ([vparfonov](https://github.com/vparfonov))
+- Delete unused classes and functionality [\#15156](https://github.com/eclipse/che/pull/15156) ([skabashnyuk](https://github.com/skabashnyuk))
+- \[Workspace Loader\] Add missing async keyword [\#15154](https://github.com/eclipse/che/pull/15154) ([mmorhun](https://github.com/mmorhun))
+- Get rid of the redundant switching to the associated workspace in the "Happy Path" test [\#15149](https://github.com/eclipse/che/pull/15149) ([Ohrimenko1988](https://github.com/Ohrimenko1988))
+- \[Workspace Loader\] Add strict checks for typescript [\#15147](https://github.com/eclipse/che/pull/15147) ([mmorhun](https://github.com/mmorhun))
+- Use nightly che-machine-exec tag instead of deprecated next. [\#15144](https://github.com/eclipse/che/pull/15144) ([AndrienkoAleksandr](https://github.com/AndrienkoAleksandr))
+- \[UD\] Add ability to create a new workspace from the dashboard with a devfile [\#15143](https://github.com/eclipse/che/pull/15143) ([akurinnoy](https://github.com/akurinnoy))
+- Add an ability to configure PVC strategy with helm chart [\#15142](https://github.com/eclipse/che/pull/15142) ([sleshchenko](https://github.com/sleshchenko))
+- Remove/update deprecated machine start timeout env var in templates [\#15023](https://github.com/eclipse/che/pull/15023) ([amisevsk](https://github.com/amisevsk))
+- Use cached sessions behind any of  the login filters [\#15000](https://github.com/eclipse/che/pull/15000) ([mshaposhnik](https://github.com/mshaposhnik))
+
+## [7.3.2](https://github.com/eclipse/che/tree/7.3.2) (2019-11-15)
+[Full Changelog](https://github.com/eclipse/che/compare/7.4.0...7.3.2)
+
+**Merged pull requests:**
+
+- \[UD\] Use default icon if actual icon is not accessible [\#15181](https://github.com/eclipse/che/pull/15181) ([akurinnoy](https://github.com/akurinnoy))
+
+
 ## [7.4.0](https://github.com/eclipse/che/tree/7.4.0) (2019-11-07)
 [Full Changelog](https://github.com/eclipse/che/compare/7.3.1...7.4.0)
 
