@@ -15,35 +15,13 @@
 <suite name="Multi-thread Eclipse Che tests"
        verbose="10"
        parallel="classes"
-       thread-count="4">
+       thread-count="1">
 
     <test name="all">
       <classes>
-          <class name="org.eclipse.che.selenium.dashboard.CreateAndDeleteProjectsTest"/>
-          <class name="org.eclipse.che.selenium.dashboard.DeleteRunningWorkspaceTest"/>
-          <class name="org.eclipse.che.selenium.dashboard.DeleteStoppingWorkspaceTest"/>
-          <class name="org.eclipse.che.selenium.dashboard.ImportMavenProjectFromGitTest"/>
-          <class name="org.eclipse.che.selenium.dashboard.workspaces.details.WorkspaceDetailsOverviewTest"/>
-          <class name="org.eclipse.che.selenium.dashboard.workspaces.details.WorkspaceDetailsProjectsTest"/>
-          <class name="org.eclipse.che.selenium.dashboard.RenameWorkspaceTest"/>
-          <class name="org.eclipse.che.selenium.dashboard.CreateWorkspaceTest"/>
-          <class name="org.eclipse.che.selenium.dashboard.workspaces.NewWorkspacePageTest"/>
-          <class name="org.eclipse.che.selenium.dashboard.organization.UserEmptyOrganizationTest"/>
-          <class name="org.eclipse.che.selenium.factory.DirectUrlFactoryWithRootFolderTest"/>
-          <class name="org.eclipse.che.selenium.factory.DirectUrlFactoryWithSpecificBranchTest"/>
-          <class name="org.eclipse.che.selenium.factory.DirectUrlFactoryWithKeepDirectoryTest"/>
-          <class name="org.eclipse.che.selenium.factory.CreateFactoryFromDevfileUrl"/>
-          <class name="org.eclipse.che.selenium.swagger.SwaggerTest"/>
           <class name="org.eclipse.che.selenium.workspaces.ProjectStateAfterRefreshTest"/>
           <class name="org.eclipse.che.selenium.workspaces.ProjectStateAfterRenameWorkspaceTest"/>
-          <class name="org.eclipse.che.selenium.workspaces.ProjectStateAfterWorkspaceRestartTest"/>
-          <class name="org.eclipse.che.selenium.workspaces.CheckStoppingWsByTimeoutTest"/>
-          <class name="org.eclipse.che.selenium.dashboard.AccountTest"/>
         </classes>
     </test>
 
-    <suite-files>
-        <!-- that is the path where sub-suite file being looked at -->
-        <suite-file path="target/test-classes/suites/CheOneThreadTestsSuite.xml"/>
-    </suite-files>
 </suite>
