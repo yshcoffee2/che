@@ -1,0 +1,73 @@
+#
+#  Copyright (c) 2020 Red Hat, Inc.
+#    This program and the accompanying materials are made
+#    available under the terms of the Eclipse Public License 2.0
+#    which is available at https://www.eclipse.org/legal/epl-2.0/
+#
+#  SPDX-License-Identifier: EPL-2.0
+#
+#  Contributors:
+#    Red Hat, Inc. - initial API and implementation
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: che
+    component: docker-registry
+  name: docker-registry
+spec:
+  selector:
+    matchLabels:
+      app: che
+      component: docker-registry
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: che
+        component: docker-registry
+    spec:
+      containers:
+        - name: docker-registry
+          image: registry:2.7.1
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: docker-registry
+              containerPort: 5000
+              protocol: TCP
+          readinessProbe:
+            exec:
+              command:
+              - /bin/sh
+              - -i
+              - -c
+              - wget 127.0.0.1:5000 --spider
+            failureThreshold: 10
+            initialDelaySeconds: 15
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
+          resources:
+            limits:
+              memory: 1Gi
+            requests:
+              memory: 512Mi
+          volumeMounts:
+            - name: docker-registry-data
+              mountPath: /data
+            - name: config
+              mountPath: /etc/docker/registry
+      restartPolicy: Always
+      terminationGracePeriodSeconds: 30
+      volumes:
+        - name: docker-registry-data
+          persistentVolumeClaim:
+            claimName: docker-registry-data
+        - name: config
+          configMap:
+            name: docker-registry
+            items:
+              - key: registry-config.yml
+                path: config.yml
