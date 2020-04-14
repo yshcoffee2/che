@@ -12,7 +12,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: docker-registry-image-puller
+  name: docker-registry-image-copier
   labels:
     app: che
     component: docker-registry
@@ -25,6 +25,12 @@ spec:
         imagePullPolicy: IfNotPresent
         env:
           - name: DOCKER_IMAGES
-            value: ${images}
+            value: ''
+        env:
+          - name: DOCKER_REGISTRY_SERVICE
+            value: docker-registry
+        env:
+          - name: DOCKER_REGISTRY_PORT
+            value: 5000
       restartPolicy: Never
   backoffLimit: 4
