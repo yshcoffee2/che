@@ -21,6 +21,10 @@ spec:
     spec:
       containers:
       - name: skopeo
-        image: quay.io/redhat-emea-ssa-team/skopeo-ubi
+        image: docker.io/abazko/puller:latest
+        imagePullPolicy: IfNotPresent
+        env:
+          - name: DOCKER_IMAGES
+            value: ${images}
       restartPolicy: Never
   backoffLimit: 4
