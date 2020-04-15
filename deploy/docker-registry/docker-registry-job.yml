@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: skopeo
-        image: docker.io/abazko/puller:latest
+        image: quay.io/eclipse/che-docker-registry-image-copier:8577e93
         imagePullPolicy: IfNotPresent
         env:
           - name: DOCKER_IMAGES
