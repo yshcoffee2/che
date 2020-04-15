@@ -18,6 +18,10 @@ metadata:
     component: docker-registry
 spec:
   template:
+    metadata:
+      labels:
+        app: che
+        component: docker-registry
     spec:
       containers:
       - name: skopeo
