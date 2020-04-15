@@ -30,5 +30,6 @@ spec:
             value: docker-registry
           - name: DOCKER_REGISTRY_PORT
             value: 5000
+        ttlSecondsAfterFinished: 10
       restartPolicy: Never
   backoffLimit: 4
