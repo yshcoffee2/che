@@ -30,10 +30,8 @@ spec:
         env:
           - name: DOCKER_IMAGES
             value: ''
-          - name: DOCKER_REGISTRY_SERVICE
-            value: docker-registry
-          - name: DOCKER_REGISTRY_PORT
-            value: 5000
+          - name: DOCKER_REGISTRY
+            value: ''
         ttlSecondsAfterFinished: 10
       restartPolicy: Never
   backoffLimit: 4
