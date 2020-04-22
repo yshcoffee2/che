@@ -37,6 +37,7 @@ import org.eclipse.che.workspace.infrastructure.kubernetes.StartSynchronizerFact
 import org.eclipse.che.workspace.infrastructure.kubernetes.cache.KubernetesMachineCache;
 import org.eclipse.che.workspace.infrastructure.kubernetes.cache.KubernetesRuntimeStateCache;
 import org.eclipse.che.workspace.infrastructure.kubernetes.namespace.pvc.WorkspaceVolumesStrategy;
+import org.eclipse.che.workspace.infrastructure.kubernetes.provision.AsyncStorageProvisioner;
 import org.eclipse.che.workspace.infrastructure.kubernetes.util.KubernetesSharedPool;
 import org.eclipse.che.workspace.infrastructure.kubernetes.util.RuntimeEventsPublisher;
 import org.eclipse.che.workspace.infrastructure.kubernetes.util.UnrecoverablePodEventListenerFactory;
@@ -52,6 +53,7 @@ import org.eclipse.che.workspace.infrastructure.openshift.server.OpenShiftServer
  */
 public class OpenShiftInternalRuntime extends KubernetesInternalRuntime<OpenShiftEnvironment> {
 
+  private final AsyncStorageProvisioner asyncStorageProvisioner;
   private final OpenShiftProject project;
 
   @Inject
@@ -75,6 +77,7 @@ public class OpenShiftInternalRuntime extends KubernetesInternalRuntime<OpenShif
       RuntimeHangingDetector runtimeHangingDetector,
       OpenShiftPreviewUrlCommandProvisioner previewUrlCommandProvisioner,
       Tracer tracer,
+      AsyncStorageProvisioner asyncStorageProvisioner,
       @Assisted OpenShiftRuntimeContext context,
       @Assisted OpenShiftProject project) {
     super(
@@ -100,6 +103,7 @@ public class OpenShiftInternalRuntime extends KubernetesInternalRuntime<OpenShif
         tracer,
         context,
         project);
+    this.asyncStorageProvisioner = asyncStorageProvisioner;
     this.project = project;
   }
 
@@ -108,7 +112,7 @@ public class OpenShiftInternalRuntime extends KubernetesInternalRuntime<OpenShif
   protected void startMachines() throws InfrastructureException {
     OpenShiftEnvironment osEnv = getContext().getEnvironment();
     String workspaceId = getContext().getIdentity().getWorkspaceId();
-
+    asyncStorageProvisioner.provision(getContext().getIdentity());
     createSecrets(osEnv, workspaceId);
     createConfigMaps(osEnv, workspaceId);
     List<Service> createdServices = createServices(osEnv, workspaceId);

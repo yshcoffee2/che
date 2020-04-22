@@ -179,6 +179,7 @@ public class OpenShiftInternalRuntimeTest {
             runtimeHangingDetector,
             previewUrlCommandProvisioner,
             tracer,
+            null,
             context,
             project);
 
